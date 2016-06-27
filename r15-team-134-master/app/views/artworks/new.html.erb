@@ -1,0 +1,58 @@
+<%= form_for @artwork do |f| %>
+ 
+  <% if @artwork.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@artwork.errors.count, "error") %> prohibited
+        this artwork info from being saved:
+      </h2>
+      <ul>
+        <% @artwork.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.label :artist_id %><br>
+    <%= f.text_field :artist_id %>
+  </p>
+
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.label :media %><br>
+    <%= f.text_field :media %>
+  </p>
+
+  <p>
+    <%= f.label :date_made %><br>
+    <%= f.date_field :artwork_made %>
+  </p>
+
+  <p>
+    <%= f.label :dimension %><br>
+    <%= f.text_field :dimension%>
+  </p>
+
+  <p>
+    <%= f.label :suggest_price %><br>
+    <%= f.number_field :suggest_price %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>
+
+<%= link_to 'Back', artworks_path %>
